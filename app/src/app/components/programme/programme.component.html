@@ -1,0 +1,55 @@
+<form #programmeForm="ngForm" (ngSubmit)="programmeForm.valid && onSave(programme); programmeForm.resetForm()"
+      class="programme">
+
+    <div class="programme__poster">
+        <img class="programme__poster" [src]="programme.art"  alt="{{ programme.name }} poster"/>
+    </div>
+
+    <div class="programme__item">
+        <input type="text"
+               placeholder="Name"
+               class="form-control"
+               id="name"
+               required
+               name="name"
+               [(ngModel)]="programme.name"/>
+    </div>
+
+    <div class="programme__item">
+        <input type="text"
+               placeholder="Genre"
+               class="form-control"
+               id="genre"
+               required
+               name="genre"
+               [(ngModel)]="programme.genre"/>
+    </div>
+
+    <div class="programme__item">
+        <select required class="form-control" name="rating" id="rating" [(ngModel)]="programme.rating">
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+        </select>
+    </div>
+
+    <div class="programme__item">
+        <input type="text"
+               placeholder="Comments"
+               class="form-control"
+               id="comments"
+               required
+               name="comments"
+               [(ngModel)]="programme.comments"/>
+    </div>
+
+    <div class="programme__item" *ngIf="programme.id">
+        <button type="button" class="btn" (click)="onUpdate(programme)">Update</button>
+        <button type="button" class="btn btn--delete" (click)="onDelete(programme.id)">Delete</button>
+    </div>
+    <div class="programme__item" *ngIf="!programme.id">
+        <button type="submit" class="btn">Add</button>
+    </div>
+</form>

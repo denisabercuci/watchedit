@@ -1,0 +1,42 @@
+@import "../styles.scss";
+
+.watchedit__app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: $studios-primary-purple;
+    background: linear-gradient(90deg, $studios-secondary-mint 0%, $studios-secondary-magenta 50% , $studios-primary-purple 80%);
+    min-height: 100vh;
+    position: relative;
+    width: 100vw;
+    z-index: 10;
+}
+
+.watchedit__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.watchedit__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.watchedit__container {
+    margin: 20px;
+    background-color: white;
+    border: 1px solid $studios-tertiary-mid-grey;
+    border-radius: 20px;
+    position: relative;
+}

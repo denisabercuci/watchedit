@@ -1,0 +1,20 @@
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+@import "../../../styles.scss";
+
+.programme {
+    display: flex;
+}
+
+.programme__item {
+    margin: 5px;
+    padding: 5px;
+    flex: 1;
+}
+
+.programme__item--poster{
+    max-width: 100px;
+}
+
+.programme__poster {
+    max-width: 100px;
+}
