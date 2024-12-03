@@ -1,27 +1,58 @@
 <div class="programmes">
-    <h2 class="no__border--top">New Programme</h2>
-    <div class="programmes__list__item programmes__list__item--new">
-        <app-programme [programme]="blankProgramme"
-                       (onProgrammeChanged)="getProgrammes()">
-        </app-programme>
+  <h2 class="no__border--top">New Programme</h2>
+  <div class="programmes__list__item programmes__list__item--new">
+    <app-programme
+      [programme]="blankProgramme"
+      (onProgrammeChanged)="getProgrammes()"
+    >
+    </app-programme>
+  </div>
+
+  <div>
+    <h2>List of Programmes</h2>
+
+    <div class="view-btn">
+      <button class="btn" (click)="isListView = !isListView">
+        Toggle View: {{ isListView ? "Grid" : "List" }}
+      </button>
     </div>
 
-    <div>
-        <h2>List of Programmes</h2>
-        <div class="programmes__header">
-            <div class="programmes__header__item programmes__header__item--poster">Poster</div>
-            <div class="programmes__header__item">Name</div>
-            <div class="programmes__header__item">Genre</div>
-            <div class="programmes__header__item">Rating</div>
-            <div class="programmes__header__item">Comments</div>
-            <div class="programmes__header__item">Actions</div>
+    <div *ngIf="isListView; else gridView">
+      <div class="programmes__header">
+        <div class="programmes__header__item programmes__header__item--poster">
+          Poster
         </div>
+        <div class="programmes__header__item">Name</div>
+        <div class="programmes__header__item">Genre</div>
+        <div class="programmes__header__item">Rating</div>
+        <div class="programmes__header__item">Comments</div>
+        <div class="programmes__header__item">Actions</div>
+      </div>
 
-        <div class="programmes__list" role="list">
-            <div class="programmes__list__item" *ngFor="let programme of programmes" role="listitem">
-                <app-programme [programme]="programme"
-                               (onProgrammeChanged)="getProgrammes()">
-                </app-programme>
-            </div>
+      <div class="programmes__list" role="list">
+        <div
+          class="programmes__list__item"
+          *ngFor="let programme of programmes"
+          role="listitem"
+        >
+          <app-programme
+            [programme]="programme"
+            (onProgrammeChanged)="getProgrammes()"
+          >
+          </app-programme>
         </div>
+      </div>
     </div>
+
+    <ng-template #gridView>
+      <div class="programme__grid">
+        <!-- Grid View -->
+        <div *ngFor="let programme of programmes" role="listitem">
+          <div class="programme__grid__card">
+            <app-grid-programme [programme]="programme"></app-grid-programme>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>

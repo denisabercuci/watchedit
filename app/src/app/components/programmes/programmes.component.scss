@@ -35,3 +35,23 @@
   border: none !important;
   margin: 25px 15px 20px 15px;
 }
+
+.view-btn {
+  margin: 8px;
+}
+
+.programme__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 100%;
+  max-width: 113vh;
+  margin: 10px;
+
+  .programme__grid__card {
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+  }
+}

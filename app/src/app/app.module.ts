@@ -12,12 +12,14 @@ import { AppComponent } from './app.component';
 import { ProgrammesComponent } from './components/programmes/programmes.component';
 import { ProgrammeComponent } from './components/programme/programme.component';
 import { ProgrammeService } from './services/programme.service';
+import { GridProgrammeComponent } from './components/grid/gridProgramme.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProgrammesComponent,
     ProgrammeComponent,
+    GridProgrammeComponent,
   ],
   imports: [
     BrowserModule,

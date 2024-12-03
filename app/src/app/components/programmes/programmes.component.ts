@@ -35,4 +35,5 @@ export class ProgrammesComponent implements OnInit {
     }
 
     isListView: boolean = false; // Default to grid view
+    
 }
