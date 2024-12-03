@@ -1,0 +1,13 @@
+<div *ngIf="!isListView" class="programmes__grid">
+  <div
+    class="programmes__grid__card"
+    *ngFor="let programme of programmes"
+    role="listitem"
+  >
+    <img [src]="programme.art" alt="{{ programme.name }} poster" />
+    <h3>{{ programme.name }}</h3>
+    <p>Rating: {{ programme.rating }}</p>
+  </div>
+</div>
+
+

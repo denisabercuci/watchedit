@@ -1,27 +1,57 @@
 <div class="programmes">
-    <h2 class="no__border--top">New Programme</h2>
-    <div class="programmes__list__item programmes__list__item--new">
-        <app-programme [programme]="blankProgramme"
-                       (onProgrammeChanged)="getProgrammes()">
-        </app-programme>
-    </div>
+  <h2 class="no__border--top">New Programme</h2>
+  <div class="programmes__list__item programmes__list__item--new">
+    <app-programme
+      [programme]="blankProgramme"
+      (onProgrammeChanged)="getProgrammes()"
+    >
+    </app-programme>
+  </div>
 
-    <div>
-        <h2>List of Programmes</h2>
-        <div class="programmes__header">
-            <div class="programmes__header__item programmes__header__item--poster">Poster</div>
-            <div class="programmes__header__item">Name</div>
-            <div class="programmes__header__item">Genre</div>
-            <div class="programmes__header__item">Rating</div>
-            <div class="programmes__header__item">Comments</div>
-            <div class="programmes__header__item">Actions</div>
-        </div>
+  <div>
+    <h2>List of Programmes</h2>
 
-        <div class="programmes__list" role="list">
-            <div class="programmes__list__item" *ngFor="let programme of programmes" role="listitem">
-                <app-programme [programme]="programme"
-                               (onProgrammeChanged)="getProgrammes()">
-                </app-programme>
-            </div>
-        </div>
+    <div class="view-toggle">
+      <label>
+        <input type="checkbox" [(ngModel)]="isListView" /> Change View
+      </label>
     </div>
+    <div *ngIf="!isListView" class="programmes__grid">
+      <div
+        class="programmes__grid__card"
+        *ngFor="let programme of programmes"
+        role="listitem"
+      >
+        <img [src]="programme.art" alt="{{ programme.name }} poster" />
+        <h3>{{ programme.name }}</h3>
+        <p>Rating: {{ programme.rating }}</p>
+      </div>
+    </div>
+    <div *ngIf="isListView">
+      <div class="programmes__header">
+        <div class="programmes__header__item programmes__header__item--poster">
+          Poster
+        </div>
+        <div class="programmes__header__item">Name</div>
+        <div class="programmes__header__item">Genre</div>
+        <div class="programmes__header__item">Rating</div>
+        <div class="programmes__header__item">Comments</div>
+        <div class="programmes__header__item">Actions</div>
+      </div>
+
+      <div class="programmes__list" role="list">
+        <div
+          class="programmes__list__item"
+          *ngFor="let programme of programmes"
+          role="listitem"
+        >
+          <app-programme
+            [programme]="programme"
+            (onProgrammeChanged)="getProgrammes()"
+          >
+          </app-programme>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
