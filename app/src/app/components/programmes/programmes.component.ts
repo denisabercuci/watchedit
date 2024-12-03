@@ -19,12 +19,20 @@ export class ProgrammesComponent implements OnInit {
     constructor(private programmeService: ProgrammeService) {
     }
 
-    ngOnInit() {
-        this.getProgrammes();
-    }
+    ngOnInit(): void {
+        this.programmeService.getAll().subscribe(
+          (data) => {
+            this.programmes = data;
+          },
+          (error) => {
+            console.error('Error fetching programmes:', error);
+          }
+        );
+      }
 
     getProgrammes(): void {
         this.programmeService.getAll().subscribe(programmes => this.programmes = programmes);
     }
 
+    isListView: boolean = false; // Default to grid view
 }
