@@ -36,27 +36,22 @@
   margin: 25px 15px 20px 15px;
 }
 
-.view-toggle {
+.view-btn {
   margin: 8px;
 }
 
-.programmes__grid {
+.programme__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   width: 100%;
   max-width: 113vh;
   margin: 10px;
 
-  .programmes__grid__card {
+  .programme__grid__card {
     border: 1px solid #cccccc;
     border-radius: 8px;
     padding: 1rem;
     text-align: center;
-
-    img {
-      max-width: 100%;
-      border-radius: 4px;
-    }
   }
 }

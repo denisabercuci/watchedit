@@ -11,23 +11,13 @@
   <div>
     <h2>List of Programmes</h2>
 
-    <div class="view-toggle">
-      <label>
-        <input type="checkbox" [(ngModel)]="isListView" /> Change View
-      </label>
+    <div class="view-btn">
+      <button class="btn" (click)="isListView = !isListView">
+        Toggle View: {{ isListView ? "Grid" : "List" }}
+      </button>
     </div>
-    <div *ngIf="!isListView" class="programmes__grid">
-      <div
-        class="programmes__grid__card"
-        *ngFor="let programme of programmes"
-        role="listitem"
-      >
-        <img [src]="programme.art" alt="{{ programme.name }} poster" />
-        <h3>{{ programme.name }}</h3>
-        <p>Rating: {{ programme.rating }}</p>
-      </div>
-    </div>
-    <div *ngIf="isListView">
+
+    <div *ngIf="isListView; else gridView">
       <div class="programmes__header">
         <div class="programmes__header__item programmes__header__item--poster">
           Poster
@@ -53,5 +43,16 @@
         </div>
       </div>
     </div>
+
+    <ng-template #gridView>
+      <div class="programme__grid">
+        <!-- Grid View -->
+        <div *ngFor="let programme of programmes" role="listitem">
+          <div class="programme__grid__card">
+            <app-grid-programme [programme]="programme"></app-grid-programme>
+          </div>
+        </div>
+      </div>
+    </ng-template>
   </div>
 </div>
